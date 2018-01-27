@@ -1,8 +1,6 @@
 import 'wicg-inert'
 
 const ButaneShowHide = (() => {
-  'use-strict'
-
   const FOCUSABLE_ELEMENTS = [
     'a[href]',
     'area[href]',
@@ -20,8 +18,8 @@ const ButaneShowHide = (() => {
   class ShowHide {
     constructor({
       containerEl,
+      trigger,
       target,
-      triggers = [],
       hideSelector = 'data-butane-hide',
       activeClass = 'is-active',
       onShow = () => {},
@@ -29,22 +27,15 @@ const ButaneShowHide = (() => {
       debugMode = false
     }) {
       this.containerEl = containerEl
-      this.target = document.getElementById(target)
+      this.trigger = trigger
+      this.target = target
       this.config = { debugMode, hideSelector, activeClass, onShow, onHide }
-      if (!this.target) return
 
       this.target.inert = true
-
-      if (triggers.length > 0) this.registerTriggers(...triggers)
+      this.trigger.addEventListener('click', () => this.show())
 
       this.onClick = this.onClick.bind(this)
       this.onKeydown = this.onKeydown.bind(this)
-    }
-
-    registerTriggers(...triggers) {
-      triggers.forEach(trigger => {
-        trigger.addEventListener('click', () => this.show())
-      })
     }
 
     addEventListeners() {
@@ -64,7 +55,7 @@ const ButaneShowHide = (() => {
       this.target.classList.add(this.config.activeClass)
       this.setFocusToFirstNode()
       this.addEventListeners()
-      this.config.onShow(this.target)
+      this.config.onShow(this.trigger, this.target)
     }
 
     hide() {
@@ -72,7 +63,7 @@ const ButaneShowHide = (() => {
       this.target.inert = true
       this.target.classList.remove(this.config.activeClass)
       this.removeEventListeners()
-      this.config.onHide(this.target)
+      this.config.onHide(this.trigger, this.target)
       this.activeElement.focus()
     }
 
@@ -98,42 +89,6 @@ const ButaneShowHide = (() => {
     }
   }
 
-  let activeTarget = null
-
-  const generateTriggerMap = (triggers, triggerAttr) => {
-    const triggerMap = []
-
-    triggers.forEach(trigger => {
-      const target = trigger.attributes[triggerAttr].value
-      if (triggerMap[target] === undefined) triggerMap[target] = []
-      triggerMap[target].push(trigger)
-    })
-
-    return triggerMap
-  }
-
-  const validateTriggers = triggers => {
-    if (triggers.length <= 0) {
-      return false
-    }
-  }
-
-  validateIds = id => {
-    if (!document.getElementById(id)) {
-      throw new Error(
-        `ButaneShowHide cannot find a target element with an id of '${id}'`
-      )
-      return false
-    }
-  }
-
-  const runValidation = (triggers, triggerMap) => {
-    validateTriggers(triggers)
-    if (!triggerMap) return true
-    for (var id in triggerMap) validateIds(id)
-    return true
-  }
-
   const init = config => {
     const options = Object.assign(
       {},
@@ -144,27 +99,20 @@ const ButaneShowHide = (() => {
       config
     )
 
-    const containerEl = document.querySelector(`[${options.containerSelector}]`)
-
     const triggers = Array.from(
       document.querySelectorAll(`[${options.showTrigger}]`)
     )
 
-    const triggerMap = generateTriggerMap(triggers, options.showTrigger)
-
-    if (
-      options.debugMode === true &&
-      runValidation(triggers, triggerMap) === false
-    )
-      return
-
-    for (var key in triggerMap) {
-      let value = triggerMap[key]
-      options.containerEl = containerEl
-      options.target = key
-      options.triggers = [...value]
+    triggers.forEach(trigger => {
+      options.containerEl = document.querySelector(
+        `[${options.containerSelector}]`
+      )
+      options.trigger = trigger
+      options.target = document.getElementById(
+        trigger.getAttribute(options.showTrigger)
+      )
       new ShowHide(options)
-    }
+    })
   }
 
   return { init }
