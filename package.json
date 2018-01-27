@@ -1,0 +1,26 @@
+{
+  "name": "butane-show-hide",
+  "version": "1.0.0",
+  "description": "",
+  "source": "index.js",
+  "module": "dist/butane-show-hide.es.js",
+  "main": "dist/butane-show-hide.js",
+  "umd:main": "dist/butane-show-hide.umd.js",
+  "files": [
+    "dist"
+  ],
+  "amdName": "ButaneShowHide",
+  "scripts": {
+    "build": "microbundle build",
+    "watch": "microbundle watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "microbundle": "^0.4.3"
+  },
+  "dependencies": {
+    "wicg-inert": "^1.1.6"
+  }
+}
