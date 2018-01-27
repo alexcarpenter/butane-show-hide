@@ -20,7 +20,7 @@ const ButaneShowHide = (() => {
       containerEl,
       trigger,
       target,
-      hideSelector = 'data-butane-hide',
+      hideTrigger = 'data-butane-hide',
       activeClass = 'is-active',
       onShow = () => {},
       onHide = () => {},
@@ -29,7 +29,7 @@ const ButaneShowHide = (() => {
       this.containerEl = containerEl
       this.trigger = trigger
       this.target = target
-      this.config = { debugMode, hideSelector, activeClass, onShow, onHide }
+      this.config = { debugMode, hideTrigger, activeClass, onShow, onHide }
 
       this.target.inert = true
       this.trigger.addEventListener('click', () => this.show())

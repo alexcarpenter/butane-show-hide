@@ -20,12 +20,10 @@ ButaneShowHide.init()
 
 ```js
 ButaneShowHide.init({
-  onShow: (trigger, target) => {
-    console.log('Show ' + target.getAttribute('id'))
-  },
-  onHide: (trigger, target) => {
-    console.log('Hide ' + target.getAttribute('id'))
-  }
+  showTrigger: 'data-custom-show',
+  hideTrigger: 'data-custom-hide',
+  onShow: (trigger, target) => console.log('Show ' + target.getAttribute('id')),
+  onHide: (trigger, target) => console.log('Hide ' + target.getAttribute('id'))
 })
 ```
 
