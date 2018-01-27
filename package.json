@@ -14,8 +14,14 @@
     "build": "microbundle build",
     "watch": "microbundle watch"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "modal",
+    "dialog",
+    "sidenav"
+  ],
+  "author": "Alex Carpenter",
   "license": "ISC",
   "devDependencies": {
     "microbundle": "^0.4.3"
