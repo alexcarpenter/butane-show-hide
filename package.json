@@ -1,6 +1,6 @@
 {
   "name": "butane-show-hide",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "description": "",
   "source": "index.js",
   "module": "dist/butane-show-hide.es.js",
