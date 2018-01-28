@@ -20,6 +20,7 @@ const ButaneShowHide = (() => {
       containerEl,
       trigger,
       target,
+      showTrigger,
       hideTrigger = 'data-butane-hide',
       activeClass = 'is-active',
       onShow = () => {},
@@ -29,9 +30,17 @@ const ButaneShowHide = (() => {
       this.containerEl = containerEl
       this.trigger = trigger
       this.target = target
-      this.config = { debugMode, hideTrigger, activeClass, onShow, onHide }
+      this.config = {
+        debugMode,
+        showTrigger,
+        hideTrigger,
+        activeClass,
+        onShow,
+        onHide
+      }
 
       this.target.inert = true
+      this.trigger.setAttribute('aria-controls', this.config.showTrigger)
       this.trigger.addEventListener('click', () => this.show())
 
       this.onClick = this.onClick.bind(this)
@@ -99,14 +108,14 @@ const ButaneShowHide = (() => {
       config
     )
 
+    const containerEl = document.querySelector(`[${options.containerSelector}]`)
+
     const triggers = Array.from(
       document.querySelectorAll(`[${options.showTrigger}]`)
     )
 
     triggers.forEach(trigger => {
-      options.containerEl = document.querySelector(
-        `[${options.containerSelector}]`
-      )
+      options.containerEl = containerEl
       options.trigger = trigger
       options.target = document.getElementById(
         trigger.getAttribute(options.showTrigger)

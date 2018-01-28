@@ -2,6 +2,8 @@
 
 > An accessibile show/hide JS library
 
+## Features
+
 ## Install
 
 ```bash
