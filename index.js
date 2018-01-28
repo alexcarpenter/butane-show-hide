@@ -88,7 +88,6 @@ const ButaneShowHide = (() => {
     onClick(event) {
       if (event.target.hasAttribute(this.config.hideTrigger)) {
         this.hide()
-        event.preventDefault()
       }
     }
 
