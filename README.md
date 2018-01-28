@@ -1,12 +1,14 @@
 # butane-show-hide
 
-> An accessibile show/hide JS library
+> An accessibile show/hide JS library.
+
+View [modal](https://codepen.io/alexcarpenter/pen/BYBQVJ) and [sidenav](https://codepen.io/alexcarpenter/pen/yvBjGP) examples for usage.
 
 ## Features
 
-✔︎ Traps focus via the inert attribute  
-✔︎ Hide via the <kbd>ESC</kbd> key or an optional overlay  
-✔︎ Assumes no styling layer  
+✔︎ Traps focus via the inert attribute
+✔︎ Hide via the <kbd>ESC</kbd> key or an optional overlay
+✔︎ Assumes no styling layer
 
 ## Install
 
