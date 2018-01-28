@@ -35,6 +35,10 @@ ButaneShowHide.init({
 })
 ```
 
+## Acknowledgements
+
+This project was heavily inspired by the work of Indrashish Ghoshs [micromodal](https://github.com/ghosh/micromodal) and Hugo Giraudel's work on [A11y Dialog](https://github.com/edenspiekermann/a11y-dialog). 👏🏻
+
 ## License
 
 [MIT](https://opensource.org/licenses/MIT). © 2018 Alex Carpenter
