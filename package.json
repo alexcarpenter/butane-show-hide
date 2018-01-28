@@ -12,7 +12,8 @@
   "amdName": "ButaneShowHide",
   "scripts": {
     "build": "microbundle build",
-    "watch": "microbundle watch"
+    "watch": "microbundle watch",
+    "test": "jest"
   },
   "keywords": [
     "accessibility",
@@ -24,6 +25,7 @@
   "author": "Alex Carpenter",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^22.1.4",
     "microbundle": "^0.4.3"
   },
   "dependencies": {

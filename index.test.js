@@ -1,0 +1,1 @@
+const ButaneShowHide = require('./index')
