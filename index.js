@@ -40,7 +40,6 @@ const ButaneShowHide = (() => {
       }
 
       this.target.inert = true
-      this.trigger.setAttribute('aria-controls', this.config.showTrigger)
       this.trigger.addEventListener('click', () => this.show())
 
       this.onClick = this.onClick.bind(this)
@@ -87,7 +86,7 @@ const ButaneShowHide = (() => {
     }
 
     onClick(event) {
-      if (event.target.hasAttribute(this.config.hideSelector)) {
+      if (event.target.hasAttribute(this.config.hideTrigger)) {
         this.hide()
         event.preventDefault()
       }
@@ -108,14 +107,15 @@ const ButaneShowHide = (() => {
       config
     )
 
-    const containerEl = document.querySelector(`[${options.containerSelector}]`)
+    options.containerEl = document.querySelector(
+      `[${options.containerSelector}]`
+    )
 
     const triggers = Array.from(
       document.querySelectorAll(`[${options.showTrigger}]`)
     )
 
     triggers.forEach(trigger => {
-      options.containerEl = containerEl
       options.trigger = trigger
       options.target = document.getElementById(
         trigger.getAttribute(options.showTrigger)
