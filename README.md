@@ -4,6 +4,10 @@
 
 ## Features
 
+✔︎ Traps focus via the inert attribute
+✔︎ Hide via the <kbd>ESC</kbd> key or an optional overlay
+✔︎ Assumes no styling layer
+
 ## Install
 
 ```bash
