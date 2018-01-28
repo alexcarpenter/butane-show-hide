@@ -6,8 +6,8 @@ View [modal](https://codepen.io/alexcarpenter/pen/BYBQVJ) and [sidenav](https://
 
 ## Features
 
-✔︎ Traps focus via the inert attribute
-✔︎ Hide via the <kbd>ESC</kbd> key or an optional overlay
+✔︎ Traps focus via the inert attribute  
+✔︎ Hide via the <kbd>ESC</kbd> key or an optional overlay  
 ✔︎ Assumes no styling layer
 
 ## Install
