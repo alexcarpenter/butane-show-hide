@@ -1,7 +1,7 @@
 {
   "name": "butane-show-hide",
   "version": "1.0.0-alpha.2",
-  "description": "An accessibile show/hide JS library.",
+  "description": "An accessible show/hide JS library.",
   "source": "index.js",
   "module": "dist/butane-show-hide.es.js",
   "main": "dist/butane-show-hide.js",

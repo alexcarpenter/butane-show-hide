@@ -1,6 +1,6 @@
 # butane-show-hide
 
-> An accessibile show/hide JS library.
+> An accessible show/hide JS library.
 
 View [modal](https://codepen.io/alexcarpenter/pen/BYBQVJ) and [sidenav](https://codepen.io/alexcarpenter/pen/yvBjGP) examples for usage.
 
